@@ -1,0 +1,38 @@
+---
+title: "Building a Music Visualization App with React and Web Audio API"
+date: "2023-06-15"
+coverImage: "/cover.png"
+excerpt: "How I combined my passion for music and coding to create an interactive audio visualization tool."
+category: "code"
+featured: true
+---
+
+# Building a Music Visualization App with React and Web Audio API
+
+As both a software engineer and musician, I've always been fascinated by the intersection of these two fields. In this post, I'll walk through how I built a real-time music visualization application using React and the Web Audio API.
+
+## The Inspiration
+
+During one of my recent travels to Tokyo, I visited a digital art exhibition that featured incredible audio-responsive installations. This inspired me to create something similar that I could share online.
+
+## Technical Implementation
+
+The Web Audio API provides a powerful system for controlling audio on the web, offering the ability to select audio sources, add effects, create visualizations, and more.
+
+Here's a simplified example of how to create an audio analyzer:
+
+```javascript
+// Create audio context
+const audioContext = new (window.AudioContext || window.webkitAudioContext)();
+
+// Create analyzer
+const analyser = audioContext.createAnalyser();
+analyser.fftSize = 2048;
+
+// Get data
+const bufferLength = analyser.frequencyBinCount;
+const dataArray = new Uint8Array(bufferLength);
+analyser.getByteTimeDomainData(dataArray);
+```
+
+Stay tuned for a follow-up post where I'll dive deeper into the visualization techniques!
