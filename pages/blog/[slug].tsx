@@ -50,7 +50,7 @@ export default function PostPage({ post }: PostPageProps) {
 export async function getStaticPaths() {
   const posts = await getAllPosts();
   return {
-    paths: posts.map((post: { slug: any; }) => ({
+    paths: posts.map((post: { slug: string; }) => ({
       params: {
         slug: post.slug,
       },
